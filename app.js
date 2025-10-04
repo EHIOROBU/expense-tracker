@@ -12,7 +12,7 @@ app.use(cookieParser())
 
 
 
-mongoose.connect(process.env.URI)
+mongoose.connect(process.env.MONGODB_URI)
 .then(()=>{
     console.log("connected to Database")
     app.listen(3000, ()=>{

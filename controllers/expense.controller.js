@@ -59,8 +59,8 @@ const getExpenses = async (req, res) => {
         switch (filter) {
             case "today":
                 query.date = {
-                    $gte: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0, 0, 0),
-                    $lte: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 23, 59, 59, 999)
+                    $gte: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+                    $lte: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 23, 59, 59)
                 };
                 break;
             case "thisWeek":
@@ -186,9 +186,9 @@ const deleteExpense = async (req, res) => {
         })
     }
 }
-const getExpenseById = async (req, res) => {
-    try {
-        const { id } = req.params
+const getExpenseById = async(req, res)=>{
+try {
+        const {id} = req.params
         const expense = await Expense.findById(id)
         if (!expense) {
             return res.status(404).json({
