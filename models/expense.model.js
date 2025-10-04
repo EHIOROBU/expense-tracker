@@ -23,8 +23,6 @@ const expenseSchema = new mongoose.Schema({
         type: String,
         required: [true, "description is required"]
     },
-}, {
-    timestamps: true
 });
 const Expense = mongoose.model('Expense', expenseSchema);
 module.exports = Expense 
