@@ -2,25 +2,25 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const authRoute = require("./routers/route");
-require('dotenv').config();
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-const dbUri = process.env.URI;
+const dbUri = process.env.MONGODB_URI;
 
-// if (!dbUri) {
-//     console.error("MongoDB URI is not set");
-//     process.exit(1);
-// }
+if (!dbUri) {
+    console.error("MongoDB URI is not set");
+    process.exit(1);
+}
 
 mongoose.connect(dbUri)
     .then(() => {
         console.log("Connected to Database");
-        app.listen(3000, () => {
-            console.log("Server is listening on Port 3000");
+        const port = process.env.PORT || 3000;
+        app.listen(port, () => {
+            console.log(`Server is listening on Port ${port}`);
         });
     })
     .catch((error) => {
