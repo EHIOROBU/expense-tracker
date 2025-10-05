@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-const dbUri = process.env.MONGODB_URI;
+const dbUri = process.env.URI;
 
 // if (!dbUri) {
 //     console.error("MongoDB URI is not set");

@@ -60,20 +60,20 @@ const ValidateLogin = (data) => {
     if (error) {
         const errorDetails = error.details.map((detail) => {
             return {
-              field: detail.path[0],
-              message: detail.message
+                field: detail.path[0],
+                message: detail.message
             }
         });
-        return{
-            error:{
+        return {
+            error: {
                 code: "VALIDATION_ERROR",
                 messages: "validation_failed",
                 details: errorDetails
             }
         }
     }
-    return {value}
+    return { value }
 }
 
 
-module.exports = { ValidateUser , ValidateLogin}
+module.exports = { ValidateUser, ValidateLogin }

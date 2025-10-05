@@ -186,9 +186,9 @@ const deleteExpense = async (req, res) => {
         })
     }
 }
-const getExpenseById = async(req, res)=>{
-try {
-        const {id} = req.params
+const getExpenseById = async (req, res) => {
+    try {
+        const { id } = req.params
         const expense = await Expense.findById(id)
         if (!expense) {
             return res.status(404).json({

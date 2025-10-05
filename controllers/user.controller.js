@@ -103,7 +103,7 @@ const getUser = async (req, res) => {
         return res.status(200).json({
             success: true,
             message: "User Successfully Fetched",
-             data: {
+            data: {
                 user
             }
         })
@@ -119,8 +119,8 @@ const getUser = async (req, res) => {
     }
 }
 const getUserById = async (req, res) => {
-     try {
-        const {id} = req.params
+    try {
+        const { id } = req.params
         const user = await User.findById(id)
         if (!user) {
             return res.status(404).json({
