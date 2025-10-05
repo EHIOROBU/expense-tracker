@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const authRoute = require("./routers/route");
-require('dotenv').config({ path: './config/.env' });
+require('dotenv').config();
 
 const app = express();
 app.use(express.json());
@@ -11,10 +11,10 @@ app.use(cookieParser());
 
 const dbUri = process.env.MONGODB_URI;
 
-if (!dbUri) {
-    console.error("MongoDB URI is not set");
-    process.exit(1);
-}
+// if (!dbUri) {
+//     console.error("MongoDB URI is not set");
+//     process.exit(1);
+// }
 
 mongoose.connect(dbUri)
     .then(() => {
