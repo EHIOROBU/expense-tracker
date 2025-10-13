@@ -1,11 +1,6 @@
 const joi = require("joi")
 
 const expenseValidationSchema = joi.object({
-    userId: joi.string().required().messages({
-        'string.userId': 'please use a valid userId',
-        'string.empty': 'please userId is required',
-        'string.any': 'please userId is required field',
-    }),
     date: joi.date().required().messages({
         'date.base': 'Date Must be required',
         'any.required': 'Date is required',
