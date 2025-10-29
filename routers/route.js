@@ -6,7 +6,7 @@ const { registerUser, accessProfile, getUser, getUserById } = require("../contro
 const { createExpense, getExpenses, updateExpense, deleteExpense, getExpenseById } = require("../controllers/expense.controller")
 
 router.post("/v1/auth/register", registerUser)
-router.post("/v1/auth/profile", accessProfile)
+router.post("/v1/auth/login", accessProfile)
 router.get("/v1/users", authenticate, getUser)
 router.get("/v1/users/:id", authenticate, getUserById)
 
